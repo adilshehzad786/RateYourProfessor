@@ -1,0 +1,7 @@
+{% if formset.non_form_errors %}
+    <div class="ui error message">
+        {% if formset_error_title %}<div class="header">{{ formset_error_title }}</div>{% endif %}
+        <p><i class="warning sign icon"></i>&nbsp;<span>{{ formset.non_field_errors|unordered_list }}</span></p>
+    </div>
+{% endif %}
+

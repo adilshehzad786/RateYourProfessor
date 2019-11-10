@@ -1,0 +1,6 @@
+{% if form.errors and form.non_field_errors %}
+    <div class="ui error message">
+        {% if form_error_title %}<div class="header">{{ form_error_title }}</div>{% endif %}
+        <p><i class="warning sign icon"></i>&nbsp;<span>{{ form.non_field_errors|unordered_list }}</span></p>
+    </div>
+{% endif %}

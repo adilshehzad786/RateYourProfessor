@@ -1,0 +1,26 @@
+{% extends "djangoproject/base.html" %}
+{% block content %}
+<h1 xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml"> Reviews </h1>
+<article class="media content-section">
+    <a class="mr-2" href="{% url 'user-posts' object.author.username %}"> <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}"> </a>
+    <div class="media-body">
+        <div class="article-metadata">
+            <h5>Instructor :<font color="green"> {{object.instructor}} </font></h5>
+            Ratings : {{object.rating}}
+            <p>
+                <small class="text-muted"> Date Posted : {{object.date_posted|date:"F d, Y" }}</small>
+            </p>
+        </div>
+
+        <h5>Instructor :<font color="blue"> {{object.course}} </font></h5>
+        <h5>Comments :<font color="blue"> {{object.comments}} </font></h5>
+        <h5>Department :<font color="blue"> {{object.department}} </font></h5>
+     <h5>Rules  :<font color="blue"> {{object.agree_condition}} </font></h5>
+
+        {% if object.author == user %}
+            <a class="mr-2" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="mr-2" href="{% url 'post-delete' object.id %}">Delete</a>
+        {% endif %}
+    </div>
+</article>
+{% endblock%}

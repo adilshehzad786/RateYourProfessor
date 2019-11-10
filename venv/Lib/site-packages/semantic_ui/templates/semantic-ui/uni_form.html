@@ -1,0 +1,16 @@
+{% if form_show_errors %}
+    {% include "semantic-ui/errors.html" %}
+{% endif %}
+
+{% if form_style == "" or form_style %}
+    <div class="{{ form_style }}">
+{% endif %}
+
+{% for field in form %}
+    {% include "semantic-ui/field.html" %}
+{% endfor %}
+
+{% if form_style == "" or form_style %}
+    </div>
+    <br/>
+{% endif %}
